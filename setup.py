@@ -24,8 +24,8 @@ if 'VIRTUAL_ENV' in os.environ:
 sources = ['nvcodec-python.cpp'] + glob.glob('src/**/*.cpp', recursive=True)
 
 module = Extension('nvcodec', sources=sources, language='c++', 
-include_dirs=['src', 'src/cuvid', '/usr/local/cuda/include',np.get_include(),], 
-library_dirs=['build/lib', '/usr/local/cuda-11.2/targets/x86_64-linux/lib'],
+include_dirs=['src', 'src/cuvid', '/usr/local/cuda/include', '/opt/cuda/include',np.get_include(),], 
+library_dirs=['build/lib', '/usr/local/cuda-11.2/targets/x86_64-linux/lib', '/opt/cuda/lib64'],
 libraries=['avformat', 'avcodec','avutil','nvcuvid','nvidia-encode','cuda', 'stdc++', 'm', 'cudart', 'color_space'],
 )
 
